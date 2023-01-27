@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.macaronsteam.amethysttoolsmod.forge.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "self.MixinAmethystArrowItem",
+    "self.MixinAmethystTridentItem"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

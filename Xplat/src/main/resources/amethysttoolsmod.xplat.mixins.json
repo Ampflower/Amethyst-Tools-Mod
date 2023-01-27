@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.macaronsteam.amethysttoolsmod.xplat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AccessorThrownTridentEntity"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
