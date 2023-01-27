@@ -29,7 +29,7 @@ import net.minecraft.world.item.TridentItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.IItemRenderProperties;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
 public class AmethystTridentItem extends TridentItem {
 
@@ -54,11 +54,11 @@ public class AmethystTridentItem extends TridentItem {
   }
 
   @Override
-  public void initializeClient(Consumer<IItemRenderProperties> consumer) {
-    consumer.accept(new IItemRenderProperties() {
+  public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+    consumer.accept(new IClientItemExtensions() {
 
       @Override
-      public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
+      public BlockEntityWithoutLevelRenderer getCustomRenderer() {
         return AmethystTridentBEWLR.INSTANCE;
       }
     });

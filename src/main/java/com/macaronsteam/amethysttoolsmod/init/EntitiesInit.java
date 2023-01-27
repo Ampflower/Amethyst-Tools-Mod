@@ -19,7 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class EntitiesInit {
-  public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, AmethystToolsMod.MODID);
+  public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, AmethystToolsMod.MODID);
   public static RegistryObject<EntityType<AmethystArrowEntity>> ENTITY_AMETHYST_ARROW;
   public static RegistryObject<EntityType<AmethystSpectralArrowEntity>> ENTITY_AMETHYST_SPECTRAL_ARROW;
   public static RegistryObject<EntityType<ThrownAmethystTrident>> ENTITY_AMETHYST_TRIDENT;

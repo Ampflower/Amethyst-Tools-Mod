@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[41,42)" 
+loaderVersion="[43,44)"
 license="Apache License 2.0"
 [[mods]]
 modId="amethysttoolsmod" 
@@ -14,7 +14,7 @@ updateJSONURL="https://pastebin.com/raw/g8rHZeHD"
 [[dependencies.amethysttoolsmod]]
     modId="forge"
     mandatory=true
-    versionRange="[41,42)"
+    versionRange="[43,44)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.amethysttoolsmod]]
