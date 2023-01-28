@@ -16,4 +16,4 @@ pluginManagement {
     }
 }
 
-include("Xplat", "Forge")
+include("Xplat", "Forge", "Fabric")

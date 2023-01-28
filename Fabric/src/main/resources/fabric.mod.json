@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "amethysttoolsmod",
+  "version": "${version}",
+  "name": "§5Amethyst Tools Mod",
+  "description": "Use amethyst to upgrade your equipment!",
+  "authors": [
+    "§5Macarons Team (Kitoglav, Muffch)",
+    "Ampflower"
+  ],
+  "icon": "assets/amethysttoolsmod/amethysttoolsmod-logo.png",
+  "contact": {
+    "sources": "https://github.com/Ampflower/AmethystToolsMod",
+    "discord": "https://discord.gg/EmPS9y9"
+  },
+  "license": [
+    "Apache-2.0"
+  ],
+  "environment": "*",
+  "mixins": [
+    "amethysttoolsmod.xplat.mixins.json",
+    "amethysttoolsmod.fabric.mixins.json"
+  ],
+  "entrypoints": {
+    "main": [
+      "com.macaronsteam.amethysttoolsmod.fabric.AmethystMain"
+    ],
+    "client": [
+      "com.macaronsteam.amethysttoolsmod.fabric.AmethystClientMain"
+    ]
+  },
+  "depends": {
+    "minecraft": ">=${minecraft_required}",
+    "fabric-api": "*"
+  }
+}

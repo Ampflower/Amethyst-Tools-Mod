@@ -4,8 +4,8 @@
 package com.macaronsteam.amethysttoolsmod.event;
 
 import com.macaronsteam.amethysttoolsmod.Constants;
+import com.macaronsteam.amethysttoolsmod.client.AmethystItemColors;
 import com.macaronsteam.amethysttoolsmod.init.ItemsInit;
-import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -18,6 +18,6 @@ public class ModEvents {
   @SubscribeEvent
   @OnlyIn(Dist.CLIENT)
   public static void onColorHandlerInit(RegisterColorHandlersEvent.Item event) {
-    ItemsInit.ITEM_AMETHYST_TIPPED_ARROW.ifPresent(item -> event.register((itemstack, layer) -> layer == 0 ? -1 : PotionUtils.getColor(itemstack), item));
+    ItemsInit.ITEM_AMETHYST_TIPPED_ARROW.ifPresent(item -> event.register(AmethystItemColors.AMETHYST_TIPPED_ARROW, item));
   }
 }
