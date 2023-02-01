@@ -1,3 +1,10 @@
+import com.google.gson.JsonArray
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
+import java.io.FilterReader
+import java.io.Reader
+import java.io.StringReader
+
 plugins {
     id("fabric-loom") version "1.1-SNAPSHOT"
 }
@@ -58,5 +65,52 @@ tasks {
         inputs.properties(map)
 
         filesMatching("fabric.mod.json") { expand(map) }
+
+        filesMatching("data/amethysttoolsmod/recipes/*.json") {
+            filter(Carrier.JsonTransformer::class)
+        }
     }
+}
+
+object Carrier {
+    val remapper = mapOf(
+        "forge:not" to "fabric:not",
+        "forge:and" to "fabric:and",
+        "forge:or" to "fabric:or"
+    )
+
+    fun remap(condition: JsonObject) {
+        condition.remove("type").asString.let { type ->
+            condition.addProperty("condition", remapper.getOrDefault(type, type))
+
+            if (remapper.containsKey(type)) {
+                (condition["value"] as? JsonObject)?.let(::remap)
+                (condition["values"] as? JsonArray)?.forEach { if (it is JsonObject) remap(it) }
+            }
+        }
+    }
+
+    class JsonTransformer(it: Reader) : FilterReader(run {
+        val element = JsonParser.parseReader(it)
+        if (element !is JsonObject || element["type"].asString != "forge:conditional") {
+            return@run StringReader(element.toString())
+        }
+
+        val recipeArray = element.getAsJsonArray("recipes")
+        if (recipeArray.size() != 1) {
+            throw IllegalStateException("Invalid recipe array; $recipeArray")
+        }
+
+        val recipeWrapper = recipeArray[0].asJsonObject
+        val recipeRoot = recipeWrapper.getAsJsonObject("recipe")
+
+        val loadConditions = recipeWrapper.getAsJsonArray("conditions")
+        for (condition in loadConditions) {
+            remap(condition as JsonObject)
+        }
+
+        recipeRoot.add("fabric:load_conditions", loadConditions)
+
+        StringReader(recipeRoot.toString())
+    })
 }

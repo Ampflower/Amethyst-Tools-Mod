@@ -1,10 +1,12 @@
 package com.macaronsteam.amethysttoolsmod.fabric;// Created 2023-27-01T20:03:23
 
 import com.macaronsteam.amethysttoolsmod.config.AmethystToolsModConfig;
+import com.macaronsteam.amethysttoolsmod.fabric.recipe.ConfigValueCondition;
 import com.macaronsteam.amethysttoolsmod.init.EntitiesInit;
 import com.macaronsteam.amethysttoolsmod.init.ItemsInit;
 import com.macaronsteam.amethysttoolsmod.init.RecipesInit;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 
@@ -22,5 +24,7 @@ public class AmethystMain implements ModInitializer {
         RecipesInit.register(VanillaRegistryFacade.create(Registry.RECIPE_SERIALIZER));
 
         ItemsInit.registerBehavior();
+
+        ResourceConditions.register(ConfigValueCondition.NAME, new ConfigValueCondition());
     }
 }
