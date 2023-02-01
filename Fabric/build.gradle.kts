@@ -8,7 +8,10 @@ val fabricLoaderVersion: String by project
 val xplat = project(":Xplat")
 val xplatMain = xplat.sourceSets.main.get()
 
+
 loom {
+    mixin.defaultRefmapName.set("amethysttoolsmod.refmap.json")
+
     runs {
         named("client") {
             client()

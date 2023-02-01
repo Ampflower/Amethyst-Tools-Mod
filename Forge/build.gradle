@@ -71,7 +71,7 @@ minecraft {
 }
 
 mixin {
-    add sourceSets.main, "mixins.amethysttoolsmod.refmap.json"
+    add sourceSets.main, "amethysttoolsmod.refmap.json"
     config "amethysttoolsmod.forge.mixins.json"
     config "amethysttoolsmod.xplat.mixins.json"
 }
