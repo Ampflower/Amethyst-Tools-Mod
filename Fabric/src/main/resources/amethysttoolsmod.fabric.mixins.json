@@ -9,6 +9,7 @@
   },
   "client": [
     "client.AccessorEntityRenderers",
-    "client.AccessorItemProperties"
+    "client.AccessorItemProperties",
+    "client.MixinItemRenderer"
   ]
 }
