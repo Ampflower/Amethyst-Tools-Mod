@@ -7,8 +7,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-public class AmethystArrowItem extends ArrowItem {
-  public static class SpectralItem extends SpectralArrowItem {
+public class AmethystArrowItem extends ArrowItem implements InfinityCompatible {
+  public static class SpectralItem extends SpectralArrowItem implements InfinityCompatible {
 
     public SpectralItem() {
       super(PROPERTIES);
@@ -20,7 +20,7 @@ public class AmethystArrowItem extends ArrowItem {
     }
   }
 
-  public static class TippedItem extends TippedArrowItem {
+  public static class TippedItem extends TippedArrowItem implements InfinityCompatible {
 
     public TippedItem() {
       super(PROPERTIES);

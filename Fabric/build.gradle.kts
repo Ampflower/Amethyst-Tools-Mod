@@ -35,6 +35,10 @@ loom {
     }
 }
 
+repositories {
+    maven("https://jitpack.io/") { name = "JitPack" }
+}
+
 dependencies {
     minecraft("com.mojang", "minecraft", minecraftVersion)
     mappings(loom.officialMojangMappings())
@@ -47,6 +51,9 @@ dependencies {
     include(modImplementation("net.minecraftforge", "forgeconfigapiport-fabric", "4.2.10"))
     compileOnly("com.electronwill.night-config:core:3.6.5")
     compileOnly("com.electronwill.night-config:toml:3.6.5")
+
+    include(implementation("com.github.LlamaLad7:MixinExtras:0.2.0-beta.1")!!)
+    annotationProcessor("com.github.LlamaLad7:MixinExtras:0.2.0-beta.1")
 }
 
 tasks {
